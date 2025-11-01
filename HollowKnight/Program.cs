@@ -1,2 +1,2 @@
-﻿using var game = new HollowKnight.Game1();
+﻿using var game = new HollowKnight.Core.Game1();
 game.Run();

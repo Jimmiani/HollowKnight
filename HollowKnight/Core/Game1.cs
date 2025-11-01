@@ -1,8 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using HollowKnight.Scenes;
 
-namespace HollowKnight
+namespace HollowKnight.Core
 {
     public class Game1 : Game
     {
@@ -18,7 +19,8 @@ namespace HollowKnight
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            SceneManager.Initialize(GraphicsDevice, Content);
+            SceneManager.ChangeScene(new ExampleScene(GraphicsDevice, Content));
 
             base.Initialize();
         }
@@ -35,16 +37,16 @@ namespace HollowKnight
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            SceneManager.Update(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            SceneManager.Draw(gameTime);
 
             base.Draw(gameTime);
         }
