@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using HollowKnight.Scenes;
+using Microsoft.Xna.Framework.Media;
 
 namespace HollowKnight.Core
 {
@@ -9,6 +10,7 @@ namespace HollowKnight.Core
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
 
         public Game1()
         {
@@ -22,14 +24,14 @@ namespace HollowKnight.Core
             SceneManager.Initialize(GraphicsDevice, Content);
             SceneManager.ChangeScene(new ExampleScene(GraphicsDevice, Content));
 
+            AudioManager.Initialize();
+
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
